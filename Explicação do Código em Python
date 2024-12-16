@@ -1,0 +1,64 @@
+Explicação do Código em Python
+A calculadora em Python é uma implementação simples e eficaz de uma calculadora interativa que permite ao usuário realizar operações matemáticas básicas, como adição, subtração, multiplicação e divisão. Utilizando um loop 
+infinito, o programa solicita repetidamente a entrada de dois números e a escolha da operação desejada. A lógica é clara e fácil de seguir, com o uso de condicionais (if, elif, else) para determinar a operação a ser realizada. 
+O código também inclui uma verificação para evitar a divisão por zero, garantindo que o usuário não encontre erros durante a execução. Além disso, a interação com o usuário é intuitiva, com mensagens claras e opções para continuar ou 
+encerrar o uso da calculadora. Essa estrutura torna o código acessível e fácil de entender, mesmo para iniciantes em programação.
+
+Exemplo de Código em Python.
+
+def calculadora():
+    while True:
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+
+        print("Escolha a operação:")
+        print("1 - Adição (+)")
+        print("2 - Subtração (-)")
+        print("3 - Multiplicação (*)")
+        print("4 - Divisão (/)")
+
+        operacao = input("Digite o número da operação desejada: ")
+
+        if operacao == '1':
+            resultado = num1 + num2
+            print(f"Resultado: {num1} + {num2} = {resultado}")
+        elif operacao == '2':
+            resultado = num1 - num2
+            print(f"Resultado: {num1} - {num2} = {resultado}")
+        elif operacao == '3':
+            resultado = num1 * num2
+            print(f"Resultado: {num1} * {num2} = {resultado}")
+        elif operacao == '4':
+            if num2 != 0:
+                resultado = num1 / num2
+                print(f"Resultado: {num1} / {num2} = {resultado}")
+            else:
+                print("Erro: Divisão por zero não permitida.")
+        else:
+            print("Opção inválida.")
+
+        continuar = input("Deseja realizar outra operação? (s/n): ")
+        if continuar.lower() != 's':
+            break
+
+calculadora()
+
+
+Explicação do Código em Python.
+Definição da Função: O código começa definindo uma função chamada calculadora(), que encapsula toda a lógica da calculadora.
+
+Loop Infinito: Um loop while True é utilizado para permitir que o usuário realize várias operações até que decida sair.
+
+Leitura dos Números: O script solicita ao usuário que insira dois números, convertendo-os para float para permitir operações com números decimais.
+
+Escolha da Operação: O usuário é apresentado a um menu de operações e deve digitar o número correspondente à operação desejada.
+
+Estruturas Condicionais: O código utiliza if, elif e else para determinar qual operação realizar com base na escolha do usuário:
+
+Para adição, subtração e multiplicação, o resultado é calculado e exibido.
+Para divisão, o código verifica se o segundo número é diferente de zero para evitar a divisão por zero.
+Verificação de Opção Inválida: Se o usuário digitar uma opção que não está no menu, uma mensagem de erro é exibida.
+
+Pergunta para Continuar: Após a operação, o script pergunta ao usuário se deseja realizar outra operação. Se o usuário não digitar "s", o loop é encerrado e a função termina.
+
+Esse código em Python é uma implementação semelhante ao script Bash, mas aproveita a sintaxe e as funcionalidades do Python, como a manipulação de tipos de dados e a
