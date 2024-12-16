@@ -1,0 +1,98 @@
+Explicação do Script de Calculadora
+Este script em Bash implementa uma calculadora simples que permite ao usuário realizar operações matemáticas básicas, como adição, subtração, multiplicação e divisão. Ele utiliza um loop infinito para permitir múltiplas operações até que o usuário decida encerrar.
+O script é interativo, solicitando a entrada dos números e a escolha da operação, e utiliza a ferramenta bc para realizar os cálculos, garantindo precisão nas operações. Além disso, o script inclui verificações para evitar erros, como a divisão por zero, e fornece 
+feedback ao usuário em caso de entradas inválidas. É um exemplo prático de como utilizar estruturas de controle e manipulação de entrada no Bash.
+
+
+1. Shebang: 
+#!/bin/bash
+Esta linha indica que o script deve ser executado usando o interpretador Bash. 
+
+
+2. Loop Infinito: 
+while true; do
+O script entra em um loop infinito, permitindo que o usuário realize várias operações até que decida sair. 
+
+
+3. Leitura dos Números: 
+read -p "Digite o primeiro número: " num1
+read -p "Digite o segundo número: " num2
+O script solicita ao usuário que insira dois números, que são armazenados nas variáveis num1 e num2. 
+
+
+4.  Escolha da Operação:
+echo "Escolha a operação:"
+echo "1 - Adição (+)"
+echo "2 - Subtração (-)"
+echo "3 - Multiplicação (*)"
+echo "4 - Divisão (/)"
+O script apresenta ao usuário um menu com quatro opções de operações matemáticas. 
+
+
+5. Leitura da Operação:
+read -p "Digite o número da operação desejada: " operacao
+O usuário é solicitado a escolher uma operação digitando o número correspondente. 
+
+
+6. Estrutura de Controle case:
+case $operacao in
+O script utiliza uma estrutura case para determinar qual operação realizar com base na escolha do usuário. 
+
+
+		Adição: 1)
+    resultado=$(echo "$num1 + $num2" | bc)
+    echo "Resultado: $num1 + $num2 = $resultado"
+Se o usuário escolher 1, o script calcula a soma dos dois números usando o comando bc (uma calculadora de precisão arbitrária) e exibe o resultado. 
+
+
+		Subtração: 2)
+    resultado=$(echo "$num1 - $num2" | bc)
+    echo "Resultado: $num1 - $num2 = $resultado"
+Similarmente, para a subtração. 
+
+
+		Multiplicação: 3)
+    resultado=$(echo "$num1 * $num2" | bc)
+    echo "Resultado: $num1 * $num2 = $resultado"
+Para a multiplicação. 
+
+
+		Divisão: 
+4)
+    if [ "$num2" -ne 0 ]; then
+        resultado=$(echo "scale=2; $num1 / $num2" | bc)
+        echo "Resultado: $num1 / $num2 = $resultado"
+    else
+        echo "Erro: Divisão por zero não permitida."
+    fi
+Para a divisão, o script verifica se o segundo número (num2) é diferente de zero para evitar a divisão por zero. Se for zero, uma mensagem de erro é exibida. 
+
+
+		Opção Inválida: 	
+*)
+    echo "Opção inválida."
+Se o usuário digitar uma opção que não está no menu, uma mensagem de erro é exibida. 
+
+
+7. Pergunta para Continuar:
+read -p "Deseja realizar outra operação? (s/n): " continuar
+if [[ "$continuar" != "s" ]]; then
+    break
+fi
+Após a operação, o script pergunta ao usuário se ele deseja realizar outra operação. Se o usuário não digitar "s", o loop é encerrado e o script termina. 
+
+
+Como Executar o Arquivo .sh
+Para executar o script, siga os passos abaixo:
+    1. Salve o Código: Copie o código do script e cole em um arquivo de texto. Salve o arquivo com a extensão .sh, por exemplo, calculadora.sh.
+    2. Dê Permissão de Execução: Abra um terminal e navegue até o diretório onde o arquivo foi salvo. Execute o seguinte comando para dar permissão de execução ao script:
+    chmod +x calculadora.sh
+
+    3. Execute o Script: Após dar permissão, você pode executar o script com o seguinte comando: 
+    ./calculadora.sh
+
+
+
+
+Conclusão
+Este script é uma calculadora interativa que permite ao usuário realizar operações básicas de adição, subtração, multiplicação e divisão. Ele é um exemplo simples de como usar loops, condicionais e leitura de entrada no Bash.
